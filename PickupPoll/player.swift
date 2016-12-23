@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import os.log
 
-class Player: NSObject {
+class Player: NSObject, NSCoding {
     
     // MARK: Properties
     var name: String
@@ -19,4 +20,28 @@ class Player: NSObject {
         self.name = name
         self.playing = playing
     }
+    
+    // MARK: Archiving Paths
+    static let DocumentsDirectory =
+        FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("players")
+    
+    // MARK: NSCoding
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(playing, forKey: "playing")
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        guard let name = aDecoder.decodeObject(forKey: "name") as? String else {
+            os_log("Unable to decode the name for a Player object.", log: OSLog.default, type: .debug)
+            return nil
+        }
+        
+        let playing = aDecoder.decodeBool(forKey: "playing")
+        
+        // Must call designated initializer
+        self.init(name: name, playing: playing as Bool)
+    }
+
 }

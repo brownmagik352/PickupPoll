@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import os.log
 
 class PlayerTableViewController: UITableViewController {
     
     // MARK: Properties
     var players = [Player]()
     
-    func loadSampleData() {
+    func loadSamplePlayers() {
         let player1 = Player(name: "You", playing: true)
         let player2 = Player(name: "Your Friend", playing: false)
         
@@ -25,8 +26,13 @@ class PlayerTableViewController: UITableViewController {
         
         navigationItem.leftBarButtonItem = editButtonItem
 
-        if players.count == 0 {
-            loadSampleData()
+        // Load any saved players, otherwise load sample data.
+        if let savedPlayers = loadPlayers() {
+            players += savedPlayers
+        }
+        else {
+            // Load the sample data.
+            loadSamplePlayers()
         }
     }
 
@@ -77,7 +83,10 @@ class PlayerTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
+        
+        // Save the data
+        savePlayers()
     }
     
 
@@ -107,11 +116,14 @@ class PlayerTableViewController: UITableViewController {
     @IBAction func unwindToPlayerList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? AddPlayerViewController, let player = sourceViewController.player {
             
-            // Add a new meal.
+            // Add a new player
             let newIndexPath = IndexPath(row: players.count, section: 0)
             
             players.append(player)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
+            
+            // Save the data
+            savePlayers()
         }
     }
 
@@ -127,8 +139,23 @@ class PlayerTableViewController: UITableViewController {
         player.playing = sender.isOn
 //        print("NEW STATE: \(player.playing)")
         
+        // Save the data
+        savePlayers()
+        
     }
     
- 
+    // MARK: Private Methods
+    private func savePlayers() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(players, toFile: Player.ArchiveURL.path)
+        if isSuccessfulSave {
+            os_log("Players successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save players...", log: OSLog.default, type: .error)
+        }
+    }
+    
+    private func loadPlayers() -> [Player]?  {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Player.ArchiveURL.path) as? [Player]
+    }
 
 }
