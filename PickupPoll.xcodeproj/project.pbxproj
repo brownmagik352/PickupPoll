@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E58006BC00002471EEF213E /* Pods_PickupPoll.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 993746A848681433B0D3AABA /* Pods_PickupPoll.framework */; };
 		88035DB81E0D7D3600C12EDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88035DB71E0D7D3600C12EDF /* AppDelegate.swift */; };
 		88035DBD1E0D7D3700C12EDF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88035DBB1E0D7D3700C12EDF /* Main.storyboard */; };
 		88035DBF1E0D7D3700C12EDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88035DBE1E0D7D3700C12EDF /* Assets.xcassets */; };
@@ -28,6 +29,9 @@
 		88035DCB1E0D802D00C12EDF /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
 		88035DCD1E0D814900C12EDF /* PlayerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTableViewController.swift; sourceTree = "<group>"; };
 		88035DCF1E0DB5BD00C12EDF /* AddPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPlayerViewController.swift; sourceTree = "<group>"; };
+		993746A848681433B0D3AABA /* Pods_PickupPoll.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickupPoll.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCA77138744A35EF85E2CD09 /* Pods-PickupPoll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickupPoll.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PickupPoll/Pods-PickupPoll.debug.xcconfig"; sourceTree = "<group>"; };
+		F1E5475750C3126D095F2928 /* Pods-PickupPoll.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickupPoll.release.xcconfig"; path = "Pods/Target Support Files/Pods-PickupPoll/Pods-PickupPoll.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E58006BC00002471EEF213E /* Pods_PickupPoll.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +51,8 @@
 			children = (
 				88035DB61E0D7D3600C12EDF /* PickupPoll */,
 				88035DB51E0D7D3600C12EDF /* Products */,
+				FFC8E8CEBC9FD24103C00723 /* Pods */,
+				BD15EB85976AE7EC448151F2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +80,23 @@
 			path = PickupPoll;
 			sourceTree = "<group>";
 		};
+		BD15EB85976AE7EC448151F2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				993746A848681433B0D3AABA /* Pods_PickupPoll.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FFC8E8CEBC9FD24103C00723 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BCA77138744A35EF85E2CD09 /* Pods-PickupPoll.debug.xcconfig */,
+				F1E5475750C3126D095F2928 /* Pods-PickupPoll.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,9 +104,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 88035DC61E0D7D3700C12EDF /* Build configuration list for PBXNativeTarget "PickupPoll" */;
 			buildPhases = (
+				DED87F3DDC84F951D95B4761 /* [CP] Check Pods Manifest.lock */,
 				88035DB01E0D7D3200C12EDF /* Sources */,
 				88035DB11E0D7D3200C12EDF /* Frameworks */,
 				88035DB21E0D7D3200C12EDF /* Resources */,
+				FB394C5C19EA240D483F54A2 /* [CP] Embed Pods Frameworks */,
+				8C2887EC678A7F393043AB76 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -140,6 +167,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8C2887EC678A7F393043AB76 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PickupPoll/Pods-PickupPoll-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DED87F3DDC84F951D95B4761 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FB394C5C19EA240D483F54A2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PickupPoll/Pods-PickupPoll-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		88035DB01E0D7D3200C12EDF /* Sources */ = {
@@ -269,6 +344,7 @@
 		};
 		88035DC71E0D7D3700C12EDF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BCA77138744A35EF85E2CD09 /* Pods-PickupPoll.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FV6N22643J;
@@ -282,6 +358,7 @@
 		};
 		88035DC81E0D7D3700C12EDF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1E5475750C3126D095F2928 /* Pods-PickupPoll.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FV6N22643J;
