@@ -148,9 +148,17 @@ class PlayerTableViewController: UITableViewController {
     private func savePlayers() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(players, toFile: Player.ArchiveURL.path)
         if isSuccessfulSave {
-            os_log("Players successfully saved.", log: OSLog.default, type: .debug)
+            if #available(iOS 10.0, *) {
+                os_log("Players successfully saved.", log: OSLog.default, type: .debug)
+            } else {
+                // Fallback on earlier versions
+            }
         } else {
-            os_log("Failed to save players...", log: OSLog.default, type: .error)
+            if #available(iOS 10.0, *) {
+                os_log("Failed to save players...", log: OSLog.default, type: .error)
+            } else {
+                // Fallback on earlier versions
+            }
         }
     }
     
